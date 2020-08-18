@@ -1,0 +1,33 @@
+
+.caption{
+	margin: 3%;
+}
+
+.box-login{
+	width: 350px;
+	background: lightgrey;
+	margin: 80px auto;
+	padding: 30px 20px;
+	padding-bottom: 0px;
+	border: 3px solid lightblue;
+}
+
+.login{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.form_login{
+	box-sizing : border-box;
+	width: 100%;
+	padding: 10px;
+	font-size: 11pt;
+	margin-bottom: 20px;
+}
+
+.footer p {
+		padding: 12px 20px;
+		color:white;
+		margin-top: 50px;
+		line-height: 50px;
+   }
