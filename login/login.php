@@ -18,11 +18,11 @@ if (isset($_POST['username'])) {
     if ($result) {
         $_SESSION["iduser"] = $result["id"];
         $_SESSION['data'] = $result;
-        header("Location: http://$baseUrl"."/admin/index.php?modul=dashboard");
+        header("Location: $baseUrl"."/admin/index.php?modul=dashboard");
         //var_dump($result["id"]);
     } else {
-        header("Location: http://$baseUrl");
+        header("Location: $baseUrl");
     }
 } else {
-    header("Location: http://$baseUrl");
+    header("Location: $baseUrl");
 }

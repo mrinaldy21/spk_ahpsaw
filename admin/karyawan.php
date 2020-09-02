@@ -1,7 +1,7 @@
 <?php
   include '../variableStore.php';
 
-  if ($_POST['tambah']) {
+  if (isset($_POST['tambah'])) {
     $id = $_POST['id_karyawan'];
     $nama = $_POST['nama_karyawan'];
     $jenkel = $_POST['jenkel'];

@@ -82,9 +82,9 @@
 							<?php
 							$q = mysqli_query($con, "select * from kriteria");
 							$no = 1;
-							$ID1 = $_POST['ID1'];
-							$ID2 = $_POST['ID2'];
-							$nilai = $_POST['nilai'];
+							$ID1 = isset($_POST['ID1']) ? $_POST['ID1'] : null;
+							$ID2 = isset($_POST['ID2']) ? $_POST['ID2'] : null;
+							$nilai = isset($_POST['nilai']) ? $_POST['nilai'] : null;
 							while ($kr = mysqli_fetch_array($q)){
 								?>
 								<tr>

@@ -35,7 +35,7 @@
 	</div>
 	<div class="box-login">
 		<h4 class="login">Silakan login</h4>
-		<form action="/login/login.php" method="post">
+		<form action="<?php echo $baseUrl ?>/login/login.php" method="post">
 			<div class="form_login">
     			<label for="username"><b>Username</b></label>
 		    	<input type="text" placeholder="Username" name="username" required>

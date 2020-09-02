@@ -2,7 +2,7 @@
   include '../variableStore.php';
   include '../koneksi.php';
 
-  if ($_POST['tambah']) {
+  if (isset($_POST['tambah'])) {
     $id = $_POST['id_kriteria'];
     $kode = $_POST['kode_kriteria'];
     $nkriteria = $_POST['nama_kriteria'];
@@ -41,7 +41,7 @@
     //   SELECT id_karyawan, '$kode', -1  FROM bobot_karyawan");
 
     // header("location:?modul=kriteria");
-  }
+  };
   if (isset($_GET['edit'])) {
     $id = $_POST['id_kriteria'];
     $kode = $_POST['kode_kriteria'];

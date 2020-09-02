@@ -1,3 +1,3 @@
 <?php
-  $baseUrl = 'localhost:8000'
+  $baseUrl = '/spkrinaldy'
 ?>
