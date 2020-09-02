@@ -1,3 +1,4 @@
+<?php include './variableStore.php'; ?>
 <html>
 <head>
 	<title> login </title>
@@ -28,21 +29,21 @@
 <div class="main-container">
 	<div class="caption">
 		<center>
-        <h1 class="display-4-bold">SPK Promosi Kenaikan Jabatan</h1>
-        <h1 class="display-4-bold">Dengan Metode Analitycal Hierarchy Process</h1>
-        </center>
-    </div>
+			<h1 class="display-4-bold">SPK Promosi Kenaikan Jabatan</h1>
+			<h1 class="display-4-bold">Dengan Metode Analitycal Hierarchy Process</h1>
+		</center>
+	</div>
 	<div class="box-login">
 		<h4 class="login">Silakan login</h4>
-		<form action="http://localhost/spkrinaldy/login/login.php" method="post">
+		<form action="/login/login.php" method="post">
 			<div class="form_login">
     			<label for="username"><b>Username</b></label>
 		    	<input type="text" placeholder="Username" name="username" required>
 		    </div>
 		    <div class="form_login">
-		   		<label for="passwoed"><b>Password</b></label>
-		    	<input type="password" placeholder="Password" name="password" required> 
-		    </div>  
+		   		<label for="password"><b>Password</b></label>
+		    	<input type="password" placeholder="Password" name="password" required>
+		    </div>
 		    <button type="submit" > Login </button>
 		</form>
 	</div>

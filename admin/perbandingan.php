@@ -6,7 +6,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 
-					<form class="form-inline" action="?modul=perbandingan" method="post">
+					<form class="form-inline" action="?modul=perbandingan&ubah" method="post">
 						<div class="form-group">
 							<select class="form-control" name="ID1" id="k1">
 							 <!-- <?php
@@ -33,10 +33,19 @@
 						</div>
 						<div class="form-group ml-2">
 							<select class="form-control" name="nilai" id="bobot">
-								<option value='1'>1 - Sama penting dengan</option><option value='2'>2 - Mendekati sedikit lebih penting dari</option><option value='3'>3 - Sedikit lebih penting dari</option><option value='4'>4 - Mendekati lebih penting dari</option><option value='5'>5 - Lebih penting dari</option><option value='6'>6 - Mendekati sangat penting dari</option><option value='7'>7 - Sangat penting dari</option><option value='8'>8 - Mendekati mutlak dari</option><option value='9'>9 - Mutlak sangat penting dari</option>        </select>
-							</div>
+								<option value='1'>1 - Sama penting dengan</option>
+								<option value='2'>2 - Mendekati sedikit lebih penting dari</option>
+								<option value='3'>3 - Sedikit lebih penting dari</option>
+								<option value='4'>4 - Mendekati lebih penting dari</option>
+								<option value='5'>5 - Lebih penting dari</option>
+								<option value='6'>6 - Mendekati sangat penting dari</option>
+								<option value='7'>7 - Sangat penting dari</option>
+								<option value='8'>8 - Mendekati mutlak dari</option>
+								<option value='9'>9 - Mutlak sangat penting dari</option>
+							</select>
+						</div>
 							<div class="form-group ml-2">
-								<select class="form-control" name="ID1" id="k2">
+								<select class="form-control" name="ID2" id="k2">
 									<?php
 									$q = mysqli_query($con, "select * from kriteria");
 									$no = 1;
@@ -50,7 +59,7 @@
 								</select>
 							</div>
 							<div class="form-group ml-2">
-								<div id="ubah" class="btn btn-success" >Ubah</div>
+								<button type="submit" id="ubah" class="btn btn-success" >Ubah</button>
 							</div>
 						</form>
 					</div>
@@ -73,6 +82,9 @@
 							<?php
 							$q = mysqli_query($con, "select * from kriteria");
 							$no = 1;
+							$ID1 = $_POST['ID1'];
+							$ID2 = $_POST['ID2'];
+							$nilai = $_POST['nilai'];
 							while ($kr = mysqli_fetch_array($q)){
 								?>
 								<tr>
@@ -82,7 +94,15 @@
 									$no = 1;
 									while ($rre = mysqli_fetch_array($qww)){
 										?>
-										<td id="<?php echo "$kr[id_kriteria]" ?><?php echo "$rre[id_kriteria]" ?>">1</td>
+										<td id=<?php echo "$kr[id_kriteria]$rre[id_kriteria]" ?> ><?php 
+											if ($ID1 != $ID2 && "$ID1$ID2" == "$kr[id_kriteria]$rre[id_kriteria]") {
+												echo $nilai;
+											} else if ($ID1 != $ID2 && "$ID2$ID1" == "$kr[id_kriteria]$rre[id_kriteria]") {
+												echo 1 / $nilai;
+											} else {
+												echo 1;
+											}
+									 ?></td>
 									<?php } ?>
 								</tr>
 							<?php } ?>
@@ -96,20 +116,20 @@
 
 
 <script>
-	$(document).ready(function(){
-		$("#ubah").click(function(){
-			<?php
-			$q = mysqli_query($con, "select * from kriteria");
-			$no = 1;
-			while ($kr = mysqli_fetch_array($q)){
-				$qww = mysqli_query($con, "select * from kriteria");
-				$no = 1;
-				while ($rre = mysqli_fetch_array($qww)){
-					?>
-					$("#<?php echo "$kr[id_kriteria]" ; echo "$rre[id_kriteria]" ?>").text("#bobot");
-					<?php
-				}
-			} ?>
-			});
-	});
+	// $(document).ready(function(){
+	// 	$("#ubah").click(function(){
+	// 		<?php
+	// 		$q = mysqli_query($con, "select * from kriteria");
+	// 		$no = 1;
+	// 		while ($kr = mysqli_fetch_array($q)){
+	// 			$qww = mysqli_query($con, "select * from kriteria");
+	// 			$no = 1;
+	// 			while ($rre = mysqli_fetch_array($qww)){
+	// 				?>
+	// 				$("#<?php echo "$kr[id_kriteria]" ; echo "$rre[id_kriteria]" ?>").text("#bobot");
+	// 				<?php
+	// 			}
+	// 		} ?>
+	// 		});
+	// });
 </script>
