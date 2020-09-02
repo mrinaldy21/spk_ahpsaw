@@ -1,4 +1,3 @@
-
 <div class="col-md-10 p-5 pt-2">
 	<h3><i class="fas fa-home fa-lg mr-3"></i>Dashboard </h3><hr>
 	<div class="card" style="width: 18rem;">

@@ -1,18 +1,24 @@
 <div class="col-md-10 p-5 pt-2">
 	<h3><i class="fas fa-database fa-lg mr-3"></i>Data Kriteria </h3><hr>
 	<div class="card">
-   	  <div class="card-body">
-        <?php
-          if (@$_POST['tambah']){
-            $id = $_POST['id_kriteria'];
-            $kode = $_POST['kode_kriteria'];
-            $nkriteria = $_POST['nama_kriteria'];
+   	<div class="card-body">
+      <?php
+        if (@$_POST['tambah']){
+          $id = $_POST['id_kriteria'];
+          $kode = $_POST['kode_kriteria'];
+          $nkriteria = $_POST['nama_kriteria'];
+          $atribut = $_POST['atribut'];
 
+          mysqli_query($con, "INSERT INTO kriteria VALUES('$id', '$kode', '$nkriteria', '$atribut')");
+          mysqli_query($con, "INSERT INTO bobot_kriteria(id1, id2, nilai)
+            SELECT '$kode', kode_kriteria, 1 FROM kriteria");
+          mysqli_query($con, "INSERT INTO bobot_kriteria(id1, id2, nilai)
+            SELECT kode_kriteria, '$kode', 1 FROM kriteria WHERE kode_kriteria<>'$kode'");
+          mysqli_query($con, "INSERT INTO bobot_karyawan(id_karyawan, kode_kriteria, nilai) 
+            SELECT id_karyawan, '$kode', -1  FROM bobot_karyawan");
 
-            mysqli_query($con, "INSERT INTO kriteria VALUES('$id', '$kode', '$nkriteria')");
-
-            header("location:?modul=kriteria");
-          }
+          header("location:?modul=kriteria");
+        }
         ?>
       <a href="#"  class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambah"> + TAMBAH </a>
 
@@ -32,6 +38,15 @@
                   <input type="text" name="kode_kriteria" class="form-control mb-2" id="kode_kriteria" required>
                   <label class="control-label" for="nama_kriteria"> Nama Kriteria</label>
                   <input type="text" name="nama_kriteria" class="form-control mb-2" id="nama_kriteria" required>
+                  <label class="control-label" for="atribut">Atribut</label>
+                  <select class="form-control" name="atribut">
+                  <?php
+                  $atribut = array('benefit'=>'Benefit', 'cost'=>'Cost');   
+                  foreach($atribut as $key => $val){
+                        echo "<option value='$key'>$val</option>";
+                    }
+                  ?>
+                </select>
                 </div>
               </div>
               <div class="modal-footer">
@@ -75,6 +90,7 @@
             <th scope="row">NO</th>
             <th scope="col">Kode Kriteria</th>
             <th scope="col">Nama Kriteria</th>
+            <th scope="col">Atribut</th>
             <th colspan="2" scope="col">Aksi</th>
           </tr>
         </thead>
@@ -86,6 +102,7 @@
             echo"<tr><td>$no</td>
                      <td>$kr[kode_kriteria]</td>
                      <td>$kr[nama_kriteria]</td>
+                     <td>$kr[atribut]</td>
                      <td>
                      <a href='' class='btn btn-primary' data-toggle='modal' data-target='#edit'>Edit
                      </a>

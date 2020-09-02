@@ -80,7 +80,8 @@
             <?php
               echo "<a href='?id=$kr[id_karyawan]&column=id_karyawan&table=karyawan&location=?modul=karyawan&pesan=hapus&hapus=true'><button type='button' class='btn btn-danger'>delete</button></a></td>"
             ?>
-          </tr>
+            </tr>
+            <?php  $no++;?>
 
           <div id="edit<?php echo "$kr[id_karyawan]" ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
