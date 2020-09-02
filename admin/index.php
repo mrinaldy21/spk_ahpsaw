@@ -23,8 +23,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
@@ -98,7 +97,10 @@
             <hr class=" bg-light">
           </li>
           <li class="nav-item">
-            <a class="nav-link text-secondary font-weight-bold" href=""><i class="fas fa-calculator fa-lg mr-3"></i>Hasil Perhitungan</a><hr class=" bg-light">
+            <a class="nav-link text-secondary font-weight-bold" href="?modul=bobotalternatif"><i class="fas fa-chart-bar fa-lg mr-3"></i>Bobot Alternatif</a><hr class=" bg-light">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary font-weight-bold" href="?modul=analisasaw"><i class="fas fa-calculator fa-lg mr-3"></i>Analisa SAW</a><hr class=" bg-light">
           </li>
           <li class="nav-item">
             <a class="nav-link text-secondary font-weight-bold" href="#"><i

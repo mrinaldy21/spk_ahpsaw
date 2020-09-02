@@ -71,6 +71,15 @@
                   <input type="text" name="kode_kriteria" class="form-control mb-2" id="kode_kriteria" required>
                   <label class="control-label" for="nama_kriteria"> Nama Kriteria</label>
                   <input type="text" name="nama_kriteria" class="form-control mb-2" id="nama_kriteria" required>
+                  <label class="control-label" for="atribut">Atribut</label>
+                  <select class="form-control" name="atribut">
+                  <?php
+                  $atribut = array('benefit'=>'Benefit', 'cost'=>'Cost');   
+                  foreach($atribut as $key => $val){
+                        echo "<option value='$key'>$val</option>";
+                    }
+                  ?>
+                </select>
                 </div>
               </div>
               <div class="modal-footer">
@@ -87,6 +96,7 @@
             <th scope="row">NO</th>
             <th scope="col">Kode Kriteria</th>
             <th scope="col">Nama Kriteria</th>
+            <th scope="col">Atribut</th>
             <th colspan="2" scope="col">Aksi</th>
           </tr>
         </thead>
